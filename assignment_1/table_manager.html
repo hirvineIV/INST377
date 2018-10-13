@@ -201,13 +201,71 @@ var organizations = [
 <body>
 <!-- Feel free to add empty tags. Data shouldn't be here. -->
 	<div id="org_table"></div>
+<table id="org_table">
+<tr class="header">
+
+	<th style="width:97%;">INST377 Assignment 1</th>
+
+</tr>
+<tr>
+	<td>How many non-profit organizations are listed?	</td>
+		<td id="np"</td>
+	</tr>
+	<tr>
+		<td>How many of these organizations are less than 10 years old?</td>
+		<td id="lt"</td>
+
+	</tr>
+	<tr>
+		<td>How many of these organizations are North American?</td>
+		<td id="na"</td>
+	</tr>
+<tr>
+	<td>How many organizations used the Transportation type of data?</td>
+	<td id='tran'</td>
+</tr>
+<tr>
+	<td>How many organizations are in a High Income Level country? </td>
+		<td id="hi"</td>
+	</tr>
+</table>
 
 <script>
 // outputs the first item of the organizations array. Just for testing.
-console.log(organizations[0]); 
-
+// console.log(organizations[0]);
+//console.log("test");
 // Your JavaScript code goes here
 
+var a=0
+var b=0
+var c=0
+var d=0
+var e=0
+
+for (i = 0; i<organizations.length; i+=1)
+{
+	if(organizations[i]["Organization Type"] == "Nonprofit")
+	{
+		a+=1;
+	}
+	if((2018 - organizations[i]["Founding Year"]) < 10){
+		b+=1;
+	}
+	if(organizations[i]["Region"]=="North America"){
+		c+=1;
+	}
+	if(organizations[i]["Type of Data Used"]=="Transportation"){
+		d+=1;
+	}
+	if(organizations[i]["Country Income Level"]=="High income"){
+		e+=1;
+	}
+}
+document.getElementById("hi").innerHTML=e;
+document.getElementById("tran").innerHTML=d;
+document.getElementById("na").innerHTML=c;
+document.getElementById("lt").innerHTML=b;
+document.getElementById("np").innerHTML=a;
 
 </script>
 
